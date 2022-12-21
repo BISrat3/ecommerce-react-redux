@@ -12,9 +12,10 @@ const cartSlice = createSlice({
             // payload properties which is a redux tool set for you which contain any extra data you are adding to the action 
             const newItem = action.payload;
             const existingItem = state.items.find((item)=> item.id === newItem.id)
+            state.totalQuantity++;
             if(!existingItem){
                 state.items.push ({
-                    itemId:newItem.id,
+                    id:newItem.id,
                     price: newItem.price,
                     quantity: 1,
                     totalPrice: newItem.price,
@@ -32,6 +33,7 @@ const cartSlice = createSlice({
             const id = action.payload;
             //  we have to identify the item from the array 
             const existingItem = state.items.find(item => item.id === id)
+            state.totalQuantity--;
             if(existingItem.quantity === 1){
                 // we want to remove the item from the array entirely
                 // we have to filter out that we need to remove

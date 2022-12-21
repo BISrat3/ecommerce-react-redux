@@ -1,10 +1,11 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { uiActions } from '../../store/ui-slice'
 import classes from './CartButton.module.css'
 
 export default function CartButton(props) {
     const dispatch = useDispatch()
+    const cartQuantity = useSelector((state)=> state.cart.totalQuantity)
     //   add another function handler - toggle handler- for hiding and showing the cart
      
     const toggleCartHandler = ()=> {
@@ -17,7 +18,7 @@ export default function CartButton(props) {
         <span>
             My Cart
         </span>
-        <span className={classes.badge}>1</span>
+        <span className={classes.badge}>{cartQuantity}</span>
     </button>
   )
 }
