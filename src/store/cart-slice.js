@@ -8,6 +8,10 @@ const cartSlice = createSlice({
         // totalAmount: 0
     },
     reducers:{
+        replaceCart(state, action){
+            state.totalQuantity = action.payload.totalQuantity;
+            state.items = action.payload.items;
+        },
         addItemToCart(state, action) {
             // payload properties which is a redux tool set for you which contain any extra data you are adding to the action 
             const newItem = action.payload;
