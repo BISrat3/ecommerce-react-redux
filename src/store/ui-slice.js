@@ -4,7 +4,8 @@ import {createSlice} from '@reduxjs/toolkit'
 const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-        cartIsVisible: false
+        cartIsVisible: false,
+        notification: null
     },
     // a map of all reducers - a map of cases a lot of case that we need to handle 
     // reducers uses another thrid party library to mutate instead of changing a state
@@ -12,6 +13,13 @@ const uiSlice = createSlice({
         // toggle Method 
         toggle(state) {
             state.cartIsVisible = !state.cartIsVisible
+        },
+        showNotification(state, action){
+            state.notification ={
+                status: action.payload.status, 
+                title: action.payload.title,
+                message: action.payload.message,
+            }
         }
     }
 })
