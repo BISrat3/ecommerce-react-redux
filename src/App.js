@@ -10,14 +10,21 @@ function App() {
 
 
   useEffect(() => {
-    // this data re-execute when ever our cart is changed 
-    fetch('https://ecommerce-fefd2-default-rtdb.firebaseio.com/cart.json',
-    // use post method to store new data
-    {
-      // we use  put method to overwrite with the existing data
-      method: 'PUT',
-      body: JSON.stringify(cart),
-    })
+    const sendCartData = async () => {
+      const response = await 
+      // this data re-execute when ever our cart is changed 
+      fetch('https://ecommerce-fefd2-default-rtdb.firebaseio.com/cart.json',
+      // use post method to store new data
+      {
+        // we use  put method to overwrite with the existing data
+        method: 'PUT',
+        body: JSON.stringify(cart),
+      })
+      if(!response.ok){
+        throw new Error("Sending cart data failed")
+      }
+      const responseData = await response.json()
+    }
   },[cart])
 
   return (
