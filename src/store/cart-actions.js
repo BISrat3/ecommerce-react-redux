@@ -35,9 +35,11 @@ export const sendCartData = (cart) => {
     // return another function
     return async (dispatch) => {
         // dispatch the actual function we want to perform 
-        // dispatch like adding cart item
-        dispatch();
-        uiActions.dispatch(uiActions.showNotification({
+        // // dispatch like adding cart item
+        // dispatch();
+        // uiActions.dispatch(uiActions.showNotification({
+        dispatch(    
+        uiActions.showNotification({
             status: 'pending',
             title: 'Sending...',
             message:'Sending cart data!',

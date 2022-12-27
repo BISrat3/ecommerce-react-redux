@@ -39,7 +39,7 @@ const cartSlice = createSlice({
             // the id of the item
             const id = action.payload;
             //  we have to identify the item from the array 
-            const existingItem = state.items.find(item => item.id === id)
+            const existingItem = state.items.find((item )=> item.id === id)
             state.totalQuantity--;
             state.changed = true;
             if(existingItem.quantity === 1){
