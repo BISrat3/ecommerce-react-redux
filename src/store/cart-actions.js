@@ -20,7 +20,8 @@ export const fetchCartData = () =>{
                 totalQuantity: cartData.totalQuantity,
             }))
         } catch(error){
-            dispatch(uiActions.showNotification({
+            dispatch(
+                uiActions.showNotification({
                 status: 'error',
                 title: 'Error',
                 message:'Fetching cart data failed!',
@@ -38,24 +39,24 @@ export const sendCartData = (cart) => {
         // dispatch();
         // uiActions.dispatch(uiActions.showNotification({
         dispatch(    
-        uiActions.showNotification({
-            status: 'pending',
-            title: 'Sending...',
-            message:'Sending cart data!',
+            uiActions.showNotification({
+                status: 'pending',
+                title: 'Sending...',
+                message:'Sending cart data!',
         }))
         const sendRequest = async () => {
-            const response = await 
+            const response = await fetch(
           // this data re-execute when ever our cart is changed 
-          fetch('https://ecommerce-fefd2-default-rtdb.firebaseio.com/cart.json',
+            'https://ecommerce-fefd2-default-rtdb.firebaseio.com/cart.json',
           // use post method to store new data
-          {
-            // we use  put method to overwrite with the existing data
-            method: 'PUT',
-            body: JSON.stringify({
-                items: cart.items, 
-                totalQuantity: cart.totalQuantity,
-            }),
-          })
+                {
+                    // we use  put method to overwrite with the existing data
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        items: cart.items, 
+                        totalQuantity: cart.totalQuantity,
+                    }),
+                })
          
           if(!response.ok){
             throw new Error("Sending cart data failed")
@@ -69,17 +70,19 @@ export const sendCartData = (cart) => {
         }
         try {
             await sendRequest();
-            dispatch(uiActions.showNotification({
-              status: 'success',
-              title: 'Success!',
-              message:'Sent cart data successfully!',
+            dispatch(
+                uiActions.showNotification({
+                    status: 'success',
+                    title: 'Success!',
+                    message:'Sent cart data successfully!',
             }))
         } catch (error){
-            dispatch(uiActions.showNotification({
-                status: 'error',
-                title: 'Error',
-                message:'Sending cart data failed!',
+            dispatch(
+                uiActions.showNotification({
+                    status: 'error',
+                    title: 'Error',
+                    message:'Sending cart data failed!',
               }))
           }
-        }
+    }
 }

@@ -20,13 +20,13 @@ const DUMMY_PRODUCTS = [
         price: 9,
         title: "My Third Book",
         description: "The Third book I ever wrote",
-    }
-    , { 
+    }, 
+    { 
         id: "p4",
         price: 10,
         title: "My Fourth Book",
         description: "The Fourth book I ever wrote",
-    }
+    },
 ]
 export default function Products(props) {
   return (

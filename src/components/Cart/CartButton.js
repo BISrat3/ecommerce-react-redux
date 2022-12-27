@@ -8,7 +8,7 @@ export default function CartButton(props) {
     const cartQuantity = useSelector((state)=> state.cart.totalQuantity)
     //   add another function handler - toggle handler- for hiding and showing the cart
      
-    const toggleCartHandler = ()=> {
+    const toggleCartHandler = () => {
         // when we execute this action operators they return action objects - then this return action object dispatch as follow
         dispatch(uiActions.toggle())
     }

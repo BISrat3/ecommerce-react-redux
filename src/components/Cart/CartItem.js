@@ -4,15 +4,17 @@ import { cartActions } from "../../store/cart-slice"
 
 export default function CartItem(props) {
     const dispatch = useDispatch()
-    const {title, quantity, price, id} = props.item
+    const {title, quantity, total, price, id} = props.item
+
     const removeItemHandler =() =>{
         dispatch(cartActions.removeItemFromCart(id))
     }
     const addItemHandler = () => {
-        dispatch(cartActions.addItemToCart({
-            id,
-            title,
-            price,
+        dispatch(
+            cartActions.addItemToCart({
+                id,
+                title,
+                price,  
         }))
     }
   return (
@@ -33,6 +35,6 @@ export default function CartItem(props) {
                 <button onClick={addItemHandler}>+</button>
             </div>
         </div>
-    </li>
-)
+    </li>   
+    )
 }
