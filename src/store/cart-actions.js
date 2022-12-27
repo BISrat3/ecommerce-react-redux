@@ -7,7 +7,6 @@ export const fetchCartData = () =>{
         const fetchData = async () =>{
             // this time we use get method no need to request by default it is activated 
             const response = await fetch('https://ecommerce-fefd2-default-rtdb.firebaseio.com/cart.json')
-        
         if (!response.ok){
             throw new Error(' Could not fetch data! ')
         }
