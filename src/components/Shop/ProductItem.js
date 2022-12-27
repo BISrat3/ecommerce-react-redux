@@ -2,6 +2,7 @@ import classes from './ProductItem.module.css'
 import Card from '../UI/Card'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../store/cart-slice'
+import classes from './ProductItem.module.css'
 
 export default function ProductItem(props) {
     // useSelector to select the entire cart from cart

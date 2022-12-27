@@ -1,15 +1,14 @@
-import {createSlice} from "@reduxjs/toolkit"
-import { uiActions } from "./ui-slice";
+import { createSlice } from "@reduxjs/toolkit"
 
 const cartSlice = createSlice({ 
-    name : 'Cart',
+    name : 'cart',
     initialState: {
         items: [],
         totalQuantity: 0,
         changed: false,
         // totalAmount: 0
     },
-    reducers:{
+    reducers: {
         replaceCart(state, action){
             state.totalQuantity = action.payload.totalQuantity;
             state.items = action.payload.items;
@@ -39,13 +38,13 @@ const cartSlice = createSlice({
             // the id of the item
             const id = action.payload;
             //  we have to identify the item from the array 
-            const existingItem = state.items.find((item )=> item.id === id)
+            const existingItem = state.items.find((item) => item.id === id)
             state.totalQuantity--;
             state.changed = true;
             if(existingItem.quantity === 1){
                 // we want to remove the item from the array entirely
                 // we have to filter out that we need to remove
-                state.items = state.items.filter(item => item.id !== id)
+                state.items = state.items.filter((item)=> item.id !== id)
             } else {
                 // if it is greater than one we will reduce by 1
                 existingItem.quantity--;
