@@ -28,7 +28,7 @@ const DUMMY_PRODUCTS = [
         description: "The Fourth book I ever wrote",
     },
 ]
-export default function Products(props) {
+const Products =(props) => {
   return (
     <section className={classes.products}>
         <h2>Buy your favorite products</h2>
@@ -46,3 +46,5 @@ export default function Products(props) {
     </section>
   )
 }
+
+export default Products

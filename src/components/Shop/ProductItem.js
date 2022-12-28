@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../store/cart-slice'
 import classes from './ProductItem.module.css'
 
-export default function ProductItem(props) {
+const ProductItem =(props) => {
     // useSelector to select the entire cart from cart
     // const cart = useSelector((state) => state.cart)
 
@@ -62,3 +62,5 @@ export default function ProductItem(props) {
     </li>
   )
 }
+
+export default ProductItem

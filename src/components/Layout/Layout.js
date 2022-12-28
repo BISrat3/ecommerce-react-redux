@@ -1,7 +1,7 @@
 import {Fragment} from 'react'
 import MainHeader from './MainHeader'
 
-export default function Layout(props) {
+const Layout =(props) =>{
   return (
     <Fragment>
         <MainHeader />
@@ -9,3 +9,4 @@ export default function Layout(props) {
     </Fragment>
   )
 }
+export default Layout

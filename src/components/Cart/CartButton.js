@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { uiActions } from '../../store/ui-slice'
 import classes from './CartButton.module.css'
 
-export default function CartButton(props) {
+const CartButton =(props) => {
     const dispatch = useDispatch()
     const cartQuantity = useSelector((state)=> state.cart.totalQuantity)
     //   add another function handler - toggle handler- for hiding and showing the cart
@@ -22,3 +22,5 @@ export default function CartButton(props) {
     </button>
   )
 }
+
+export default CartButton

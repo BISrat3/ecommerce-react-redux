@@ -1,6 +1,6 @@
 import classes from './Notification.module.css'
 
-export default function Notification(props) {
+const Notification =(props) => {
     let specialClasses = "";
 
     if(props.status === 'error'){
@@ -18,3 +18,5 @@ export default function Notification(props) {
     </section>
     )
 }
+
+export default Notification
